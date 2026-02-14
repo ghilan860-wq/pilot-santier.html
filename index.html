@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pilot de Șantier</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+      color: #222;
+    }
+    .container {
+      max-width: 750px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    h1, h2 {
+      margin-bottom: 15px;
+    }
+    p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    .card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <h1>Construiești o casă și nu știi dacă iei deciziile corecte?</h1>
+  <p>Primești ghidare înainte să faci o greșeală care te poate costa mii de euro.</p>
+
+  <h2>Greșelile din șantier costă scump</h2>
+  <p>Fundație executată greșit. Devize umflate. Materiale nepotrivite. Lipsă verificări înainte de turnare.</p>
+
+  <div class="card">
+    <h2>Pune întrebarea ta</h2>
+
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" name="nume" placeholder="Nume" required>
+      <input type="email" name="email" placeholder="Email" required>
+
+      <select name="faza" required>
+        <option value="">Faza construcției</option>
+        <option>Teren / Proiect</option>
+        <option>Fundație</option>
+        <option>Structură</option>
+        <option>Acoperiș</option>
+        <option>Instalații</option>
+        <option>Finisaje</option>
+      </select>
+
+      <textarea name="mesaj" rows="5" placeholder="Care este problema ta acum?" required></textarea>
+
+      <button type="submit">Trimite întrebarea</button>
+    </form>
+
+  </div>
+
+</div>
+
+</body>
+</html>
