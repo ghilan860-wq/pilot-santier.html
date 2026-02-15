@@ -181,29 +181,34 @@
         <h2 style="margin:0 0 6px; font-size:18px;">Cere evaluare</h2>
         <p style="margin:0 0 10px; color:var(--muted); font-size:13px;">Completează 30 secunde.</p>
 
-        <form id="contactForm" action="https://formspree.io/f/mbdaojqa" method="POST">
-          <label>Nume</label>
-          <input name="nume" required>
+        <iframe name="spree_iframe" style="display:none;"></iframe>
 
-          <label>Email</label>
-          <input type="email" name="email" required>
+<form id="contactForm"
+      action="https://formspree.io/f/mbdaojqa"
+      method="POST"
+      target="spree_iframe">
 
-          <label>Etapa</label>
-          <select name="etapa" required>
-            <option>Fundație</option>
-            <option>Zidărie</option>
-            <option>Acoperiș</option>
-            <option>Finisaje</option>
-          </select>
+  <label>Nume</label>
+  <input name="nume" required>
 
-          <label>Mesaj</label>
-          <textarea name="mesaj" rows="5" required></textarea>
+  <label>Email</label>
+  <input type="email" name="email" required>
 
-          <input type="hidden" name="_subject" value="Cerere nouă - Pilot de șantier">
+  <label>Etapa</label>
+  <select name="etapa" required>
+    <option>Fundație</option>
+    <option>Zidărie</option>
+    <option>Acoperiș</option>
+    <option>Finisaje</option>
+  </select>
 
-          <button class="btn" type="submit">Trimite</button>
-        </form>
+  <label>Mesaj</label>
+  <textarea name="mesaj" rows="5" required></textarea>
 
+  <input type="hidden" name="_subject" value="Cerere nouă - Pilot de șantier">
+
+  <button class="btn" type="submit">Trimite</button>
+</form>
         <p class="small">Prin trimitere accepți să fii contactat pentru detalii despre evaluare.</p>
       </div>
     </div>
@@ -222,30 +227,22 @@
 
   <!-- Submit AJAX + redirect (funcționează fără setări speciale în Formspree) -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const form = document.getElementById("contactForm");
-      if (!form) return;
+  (function () {
+    const form = document.getElementById("contactForm");
+    const iframe = document.querySelector('iframe[name="spree_iframe"]');
+    if (!form || !iframe) return;
 
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+    let submitted = false;
 
-        try {
-          const res = await fetch(form.action, {
-            method: "POST",
-            body: new FormData(form),
-            headers: { "Accept": "application/json" }
-          });
-
-          if (res.ok) {
-            window.location.href = "/pilot-santier.html/multumesc.html";
-          } else {
-            form.submit(); // fallback: trimite normal dacă Formspree răspunde cu eroare
-          }
-        } catch (err) {
-          form.submit(); // fallback: dacă fetch e blocat
-        }
-      });
+    form.addEventListener("submit", () => {
+      submitted = true;
     });
-  </script>
+
+    iframe.addEventListener("load", () => {
+      if (!submitted) return;
+      window.location.href = "/pilot-santier.html/multumesc.html";
+    });
+  })();
+</script>
 </body>
 </html>
