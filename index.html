@@ -8,7 +8,7 @@
   <style>
     :root{
       --bg: #f6f8fb;
-      --surface: #ffffff;F
+      --surface: #ffffff;
       --text: #0f172a;
       --muted: #475569;
       --border: #e2e8f0;
@@ -150,27 +150,6 @@
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-831ZST043J"></script>
   <script>
-    <script>
-  const form = document.getElementById('contactForm');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const res = await fetch(form.action, {
-      method: "POST",
-      body: new FormData(form),
-      headers: { "Accept": "application/json" }
-    });
-
-    if (res.ok) {
-      window.location.href = "/pilot-santier.html/multumesc.html";
-      return;
-    }
-
-    // fallback minimal: dacă e eroare, lasă browserul să trimită normal
-    form.submit();
-  });
-</script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -203,32 +182,29 @@
         <p style="margin:0 0 10px; color:var(--muted); font-size:13px;">Completează 30 secunde.</p>
 
         <form id="contactForm" action="https://formspree.io/f/mbdaojqa" method="POST">
-  <label>Nume</label>
-  <input name="nume" required>
+          <label>Nume</label>
+          <input name="nume" required>
 
-  <label>Email</label>
-  <input type="email" name="email" required>
+          <label>Email</label>
+          <input type="email" name="email" required>
 
-  <label>Etapa</label>
-  <select name="etapa" required>
-    <option>Fundație</option>
-    <option>Zidărie</option>
-    <option>Acoperiș</option>
-    <option>Finisaje</option>
-  </select>
+          <label>Etapa</label>
+          <select name="etapa" required>
+            <option>Fundație</option>
+            <option>Zidărie</option>
+            <option>Acoperiș</option>
+            <option>Finisaje</option>
+          </select>
 
-  <label>Mesaj</label>
-  <textarea name="mesaj" rows="5" required></textarea>
+          <label>Mesaj</label>
+          <textarea name="mesaj" rows="5" required></textarea>
 
-  <input type="hidden" name="_subject" value="Cerere nouă - Pilot de șantier">
-  <input type="hidden" name="_redirect" value="multumesc.html">
-  <input type="hidden" name="_redirect" value="https://ghilan860-wq.github.io/pilot-santier.html/multumesc.html">
+          <input type="hidden" name="_subject" value="Cerere nouă - Pilot de șantier">
 
+          <button class="btn" type="submit">Trimite</button>
+        </form>
 
-  <button class="btn" type="submit">Trimite întrebarea</button>
-  <button type="submit">Trimite</button>
-</form>
-
+        <p class="small">Prin trimitere accepți să fii contactat pentru detalii despre evaluare.</p>
       </div>
     </div>
   </div>
@@ -243,5 +219,33 @@
       </ul>
     </div>
   </div>
+
+  <!-- Submit AJAX + redirect (funcționează fără setări speciale în Formspree) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("contactForm");
+      if (!form) return;
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        try {
+          const res = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { "Accept": "application/json" }
+          });
+
+          if (res.ok) {
+            window.location.href = "/pilot-santier.html/multumesc.html";
+          } else {
+            form.submit(); // fallback: trimite normal dacă Formspree răspunde cu eroare
+          }
+        } catch (err) {
+          form.submit(); // fallback: dacă fetch e blocat
+        }
+      });
+    });
+  </script>
 </body>
 </html>
