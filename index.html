@@ -61,6 +61,142 @@ body::before{
     button:hover {
       opacity: 0.9;
     }
+    :root{
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: #e2e8f0;
+  --accent: #2563eb;  /* schimbă dacă vrei verde */
+  --accent2:#1d4ed8;
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(2, 6, 23, .08);
+  --shadow2: 0 6px 16px rgba(2, 6, 23, .08);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue";
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.5;
+}
+
+.container{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 16px;
+}
+
+.hero{
+  background: linear-gradient(135deg, rgba(37,99,235,.12), rgba(37,99,235,0));
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 18px;
+  align-items:start;
+  padding: 26px 0 10px;
+}
+
+h1{
+  font-size: clamp(28px, 4vw, 44px);
+  letter-spacing:-.02em;
+  margin:0 0 10px;
+}
+
+.lead{
+  color:var(--muted);
+  font-size: 16px;
+  margin:0 0 16px;
+}
+
+.badges{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin: 10px 0 0;
+}
+.badge{
+  background: rgba(37,99,235,.10);
+  color: var(--accent2);
+  border: 1px solid rgba(37,99,235,.18);
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+.section{
+  padding: 22px 0;
+}
+
+.kpis{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.kpi{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow2);
+  padding: 14px;
+}
+.kpi b{display:block; font-size:16px;}
+.kpi span{color:var(--muted); font-size:13px;}
+
+label{display:block; font-size:13px; color:var(--muted); margin:10px 0 6px;}
+input, select, textarea{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 12px;
+  font-size: 15px;
+  outline:none;
+  background:#fff;
+}
+input:focus, select:focus, textarea:focus{
+  border-color: rgba(37,99,235,.55);
+  box-shadow: 0 0 0 4px rgba(37,99,235,.15);
+}
+
+.btn{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  border:none;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-weight: 600;
+  cursor:pointer;
+  background: var(--accent);
+  color: #fff;
+}
+.btn:hover{ background: var(--accent2); }
+
+.small{
+  font-size:12px;
+  color:var(--muted);
+  margin-top:10px;
+}
+
+@media (max-width: 860px){
+  .hero-grid{ grid-template-columns:1fr; }
+  .kpis{ grid-template-columns:1fr; }
+}
+
   </style>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-831ZST043J"></script>
@@ -74,40 +210,68 @@ body::before{
 </head>
 <body>
 
-<div class="container">
+<div class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>Pilot de șantier: decizii corecte înainte să coste scump</h1>
+      <p class="lead">Verificare rapidă a etapelor critice + recomandări clare. Răspuns în aceeași zi (în zilele lucrătoare).</p>
 
-  <h1>Construiești o casă și nu știi dacă iei deciziile corecte?</h1>
-  <p>Primești ghidare înainte să faci o greșeală care te poate costa mii de euro.</p>
+      <div class="badges">
+        <div class="badge">Vaslui & împrejurimi</div>
+        <div class="badge">Fundație • zidărie • acoperiș • finisaje</div>
+        <div class="badge">Fără obligații</div>
+      </div>
 
-  <h2>Greșelile din șantier costă scump</h2>
-  <p>Fundație executată greșit. Devize umflate. Materiale nepotrivite. Lipsă verificări înainte de turnare.</p>
+      <div class="section kpis">
+        <div class="kpi"><b>Eviti erori</b><span>înainte de turnare / execuție</span></div>
+        <div class="kpi"><b>Clarifici costuri</b><span>ce e necesar vs. “umflat”</span></div>
+        <div class="kpi"><b>Plan pe pași</b><span>ce verifici și când</span></div>
+      </div>
+    </div>
 
-  <div class="card">
-    <h2>Pune întrebarea ta</h2>
+    <div class="card" id="oferta">
+      <h2 style="margin:0 0 6px; font-size:18px;">Cere evaluare</h2>
+      <p style="margin:0 0 10px; color:var(--muted); font-size:13px;">Completează 30 secunde.</p>
 
-    <form action="https://formspree.io/f/mbdaojqa" method="POST" onsubmit="gtag('event', 'form_submit', {'event_category': 'lead','event_label': 'pilot_santier'});">
+      <!-- aici păstrezi formularul tău existent -->
+      <form id="contactForm">
+        <label>Nume</label>
+        <input name="nume" required>
 
-      <input type="text" name="nume" placeholder="Nume" required>
-      <input type="email" name="email" placeholder="Email" required>
+        <label>Email</label>
+        <input type="email" name="email" required>
 
-      <select name="faza" required>
-        <option value="">Faza construcției</option>
-        <option>Teren / Proiect</option>
-        <option>Fundație</option>
-        <option>Structură</option>
-        <option>Acoperiș</option>
-        <option>Instalații</option>
-        <option>Finisaje</option>
-      </select>
+        <label>Etapa</label>
+        <select name="etapa" required>
+          <option>Fundație</option>
+          <option>Zidărie</option>
+          <option>Acoperiș</option>
+          <option>Finisaje</option>
+        </select>
 
-      <textarea name="mesaj" rows="5" placeholder="Care este problema ta acum?" required></textarea>
+        <label>Mesaj</label>
+        <textarea name="mesaj" rows="5" required></textarea>
 
-      <button type="submit">Trimite întrebarea</button>
-    </form>
-
+        <button class="btn" type="submit">Trimite întrebarea</button>
+        <div class="small">Date insuficiente pentru a verifica: timpul de răspuns exact; dacă nu este real, elimină afirmația.</div>
+      </form>
+    </div>
   </div>
-
 </div>
+
+<div class="container section">
+  <div class="card">
+    <h2 style="margin:0 0 10px;">Ce primești</h2>
+    <ul style="margin:0; color:var(--muted); padding-left:18px;">
+      <li>lista de verificare pe etapa aleasă</li>
+      <li>întrebări utile pentru echipă / ofertanți</li>
+      <li>recomandări de pași înainte de următoarea lucrare</li>
+    </ul>
+  </div>
+</div>
+
+
+
 
 </body>
 </html>
