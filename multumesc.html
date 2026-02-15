@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesaj trimis</title>
+
+  <style>
+    :root{
+      --bg: #f6f8fb;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --accent: #2563eb;
+      --accent2:#1d4ed8;
+      --radius: 14px;
+      --shadow: 0 10px 30px rgba(2, 6, 23, .08);
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background: var(--bg);
+      color: var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:100vh;
+      padding:20px;
+    }
+
+    .card{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:40px 30px;
+      text-align:center;
+      max-width:520px;
+      width:100%;
+    }
+
+    h1{
+      margin:0 0 15px;
+      font-size:24px;
+      letter-spacing:-.02em;
+    }
+
+    p{
+      color: var(--muted);
+      margin:10px 0;
+      line-height:1.6;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:20px;
+      padding:12px 20px;
+      background: var(--accent);
+      color:#fff;
+      text-decoration:none;
+      border-radius:12px;
+      font-weight:600;
+    }
+
+    .btn:hover{
+      background: var(--accent2);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Mesaj trimis cu succes</h1>
+
+    <p>Solicitarea a fost înregistrată.</p>
+
+    <p>După verificare de către experții noștri, vă contactăm în cel mai scurt timp posibil.</p>
+
+    <p>Echipa noastră vă mulțumește.</p>
+
+    <a href="/pilot-santier.html" class="btn">Înapoi la pagină</a>
+  </div>
+
+</body>
+</html>
