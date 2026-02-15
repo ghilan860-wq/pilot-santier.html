@@ -1,277 +1,220 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pilot de Șantier</title>
+
   <style>
-    body{
-  font-family: Arial, sans-serif;
-  margin: 0;
-  color: #fff;
-  min-height: 100vh;
-  background: url("bg.jpg") center/cover no-repeat fixed;
-  position: relative;
-}
-
-/* overlay pentru lizibilitate */
-body::before{
-  content:"";
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.container{
-  position: relative;
-  z-index: 1;
-}
-
-    h1, h2 {
-      margin-bottom: 15px;
-    }
-    p {
-      line-height: 1.6;
-      margin-bottom: 15px;
-    }
-    .card {
-      background: #fff;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-    input, select, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    button {
-      width: 100%;
-      padding: 12px;
-      background: #000;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    button:hover {
-      opacity: 0.9;
-    }
     :root{
-  --bg: #f6f8fb;
-  --surface: #ffffff;
-  --text: #0f172a;
-  --muted: #475569;
-  --border: #e2e8f0;
-  --accent: #2563eb;  /* schimbă dacă vrei verde */
-  --accent2:#1d4ed8;
-  --radius: 14px;
-  --shadow: 0 10px 30px rgba(2, 6, 23, .08);
-  --shadow2: 0 6px 16px rgba(2, 6, 23, .08);
-}
+      --bg: #f6f8fb;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --accent: #2563eb;
+      --accent2:#1d4ed8;
+      --radius: 14px;
+      --shadow: 0 10px 30px rgba(2, 6, 23, .08);
+      --shadow2: 0 6px 16px rgba(2, 6, 23, .08);
+    }
 
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue";
-  color:var(--text);
-  background:var(--bg);
-  line-height:1.5;
-}
+    *{ box-sizing:border-box; }
 
-.container{
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 28px 16px;
-}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue";
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.5;
+    }
 
-.hero{
-  background: linear-gradient(135deg, rgba(37,99,235,.12), rgba(37,99,235,0));
-  border-bottom: 1px solid var(--border);
-}
+    .container{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 16px;
+    }
 
-.hero-grid{
-  display:grid;
-  grid-template-columns: 1.2fr .8fr;
-  gap: 18px;
-  align-items:start;
-  padding: 26px 0 10px;
-}
+    .hero{
+      background: linear-gradient(135deg, rgba(37,99,235,.12), rgba(37,99,235,0));
+      border-bottom: 1px solid var(--border);
+    }
 
-h1{
-  font-size: clamp(28px, 4vw, 44px);
-  letter-spacing:-.02em;
-  margin:0 0 10px;
-}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items:start;
+      padding: 26px 0 10px;
+    }
 
-.lead{
-  color:var(--muted);
-  font-size: 16px;
-  margin:0 0 16px;
-}
+    h1{
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing:-.02em;
+      margin:0 0 10px;
+    }
 
-.badges{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin: 10px 0 0;
-}
-.badge{
-  background: rgba(37,99,235,.10);
-  color: var(--accent2);
-  border: 1px solid rgba(37,99,235,.18);
-  padding: 8px 10px;
-  border-radius: 999px;
-  font-size: 13px;
-}
+    .lead{
+      color:var(--muted);
+      font-size: 16px;
+      margin:0 0 16px;
+    }
 
-.card{
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 18px;
-}
+    .badges{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin: 10px 0 0;
+    }
+    .badge{
+      background: rgba(37,99,235,.10);
+      color: var(--accent2);
+      border: 1px solid rgba(37,99,235,.18);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
 
-.section{
-  padding: 22px 0;
-}
+    .card{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
 
-.kpis{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-.kpi{
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow2);
-  padding: 14px;
-}
-.kpi b{display:block; font-size:16px;}
-.kpi span{color:var(--muted); font-size:13px;}
+    .section{ padding: 22px 0; }
 
-label{display:block; font-size:13px; color:var(--muted); margin:10px 0 6px;}
-input, select, textarea{
-  width:100%;
-  border:1px solid var(--border);
-  border-radius: 12px;
-  padding: 12px 12px;
-  font-size: 15px;
-  outline:none;
-  background:#fff;
-}
-input:focus, select:focus, textarea:focus{
-  border-color: rgba(37,99,235,.55);
-  box-shadow: 0 0 0 4px rgba(37,99,235,.15);
-}
+    .kpis{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .kpi{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      padding: 14px;
+    }
+    .kpi b{ display:block; font-size:16px; }
+    .kpi span{ color:var(--muted); font-size:13px; }
 
-.btn{
-  display:inline-flex;
-  justify-content:center;
-  align-items:center;
-  width:100%;
-  border:none;
-  border-radius: 12px;
-  padding: 12px 14px;
-  font-weight: 600;
-  cursor:pointer;
-  background: var(--accent);
-  color: #fff;
-}
-.btn:hover{ background: var(--accent2); }
+    label{
+      display:block;
+      font-size:13px;
+      color:var(--muted);
+      margin:10px 0 6px;
+    }
+    input, select, textarea{
+      width:100%;
+      border:1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 12px;
+      font-size: 15px;
+      outline:none;
+      background:#fff;
+    }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(37,99,235,.55);
+      box-shadow: 0 0 0 4px rgba(37,99,235,.15);
+    }
 
-.small{
-  font-size:12px;
-  color:var(--muted);
-  margin-top:10px;
-}
+    .btn{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      width:100%;
+      border:none;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-weight: 600;
+      cursor:pointer;
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn:hover{ background: var(--accent2); }
 
-@media (max-width: 860px){
-  .hero-grid{ grid-template-columns:1fr; }
-  .kpis{ grid-template-columns:1fr; }
-}
+    .small{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:10px;
+    }
 
+    @media (max-width: 860px){
+      .hero-grid{ grid-template-columns:1fr; }
+      .kpis{ grid-template-columns:1fr; }
+    }
   </style>
+
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-831ZST043J"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-831ZST043J');
-</script>
-
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-831ZST043J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-831ZST043J');
+  </script>
 </head>
+
 <body>
+  <div class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>Pilot de șantier: decizii corecte înainte să coste scump</h1>
+        <p class="lead">Verificare rapidă a etapelor critice + recomandări clare.</p>
 
-<div class="hero">
-  <div class="container hero-grid">
-    <div>
-      <h1>Pilot de șantier: decizii corecte înainte să coste scump</h1>
-      <p class="lead">Verificare rapidă a etapelor critice + recomandări clare. Răspuns în aceeași zi (în zilele lucrătoare).</p>
+        <div class="badges">
+          <div class="badge">Vaslui & împrejurimi</div>
+          <div class="badge">Fundație • zidărie • acoperiș • finisaje</div>
+          <div class="badge">Fără obligații</div>
+        </div>
 
-      <div class="badges">
-        <div class="badge">Vaslui & împrejurimi</div>
-        <div class="badge">Fundație • zidărie • acoperiș • finisaje</div>
-        <div class="badge">Fără obligații</div>
+        <div class="section kpis">
+          <div class="kpi"><b>Eviți erori</b><span>înainte de turnare / execuție</span></div>
+          <div class="kpi"><b>Clarifici costuri</b><span>ce e necesar vs. “umflat”</span></div>
+          <div class="kpi"><b>Plan pe pași</b><span>ce verifici și când</span></div>
+        </div>
       </div>
 
-      <div class="section kpis">
-        <div class="kpi"><b>Eviti erori</b><span>înainte de turnare / execuție</span></div>
-        <div class="kpi"><b>Clarifici costuri</b><span>ce e necesar vs. “umflat”</span></div>
-        <div class="kpi"><b>Plan pe pași</b><span>ce verifici și când</span></div>
+      <div class="card" id="oferta">
+        <h2 style="margin:0 0 6px; font-size:18px;">Cere evaluare</h2>
+        <p style="margin:0 0 10px; color:var(--muted); font-size:13px;">Completează 30 secunde.</p>
+
+        <form id="contactForm">
+          <label>Nume</label>
+          <input name="nume" required>
+
+          <label>Email</label>
+          <input type="email" name="email" required>
+
+          <label>Etapa</label>
+          <select name="etapa" required>
+            <option>Fundație</option>
+            <option>Zidărie</option>
+            <option>Acoperiș</option>
+            <option>Finisaje</option>
+          </select>
+
+          <label>Mesaj</label>
+          <textarea name="mesaj" rows="5" required></textarea>
+
+          <button class="btn" type="submit">Trimite întrebarea</button>
+          <div class="small">Nu include promisiuni de timp dacă nu sunt verificabile.</div>
+        </form>
       </div>
     </div>
+  </div>
 
-    <div class="card" id="oferta">
-      <h2 style="margin:0 0 6px; font-size:18px;">Cere evaluare</h2>
-      <p style="margin:0 0 10px; color:var(--muted); font-size:13px;">Completează 30 secunde.</p>
-
-      <!-- aici păstrezi formularul tău existent -->
-      <form id="contactForm">
-        <label>Nume</label>
-        <input name="nume" required>
-
-        <label>Email</label>
-        <input type="email" name="email" required>
-
-        <label>Etapa</label>
-        <select name="etapa" required>
-          <option>Fundație</option>
-          <option>Zidărie</option>
-          <option>Acoperiș</option>
-          <option>Finisaje</option>
-        </select>
-
-        <label>Mesaj</label>
-        <textarea name="mesaj" rows="5" required></textarea>
-
-        <button class="btn" type="submit">Trimite întrebarea</button>
-        <div class="small">Date insuficiente pentru a verifica: timpul de răspuns exact; dacă nu este real, elimină afirmația.</div>
-      </form>
+  <div class="container section">
+    <div class="card">
+      <h2 style="margin:0 0 10px;">Ce primești</h2>
+      <ul style="margin:0; color:var(--muted); padding-left:18px;">
+        <li>listă de verificare pe etapa aleasă</li>
+        <li>întrebări utile pentru echipă / ofertanți</li>
+        <li>recomandări de pași înainte de următoarea lucrare</li>
+      </ul>
     </div>
   </div>
-</div>
-
-<div class="container section">
-  <div class="card">
-    <h2 style="margin:0 0 10px;">Ce primești</h2>
-    <ul style="margin:0; color:var(--muted); padding-left:18px;">
-      <li>lista de verificare pe etapa aleasă</li>
-      <li>întrebări utile pentru echipă / ofertanți</li>
-      <li>recomandări de pași înainte de următoarea lucrare</li>
-    </ul>
-  </div>
-</div>
-
-
-
-
 </body>
 </html>
