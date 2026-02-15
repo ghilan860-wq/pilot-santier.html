@@ -181,31 +181,30 @@
         <h2 style="margin:0 0 6px; font-size:18px;">Cere evaluare</h2>
         <p style="margin:0 0 10px; color:var(--muted); font-size:13px;">Completează 30 secunde.</p>
 
-        <form 
-  <form action="https://formspree.io/f/xqkrwabc" method="POST"> 
-  method="POST"
->
+        <form id="contactForm" action="https://formspree.io/f/mbdaojqa" method="POST">
+  <label>Nume</label>
+  <input name="nume" required>
 
-          <label>Nume</label>
-          <input name="nume" required>
+  <label>Email</label>
+  <input type="email" name="email" required>
 
-          <label>Email</label>
-          <input type="email" name="email" required>
+  <label>Etapa</label>
+  <select name="etapa" required>
+    <option>Fundație</option>
+    <option>Zidărie</option>
+    <option>Acoperiș</option>
+    <option>Finisaje</option>
+  </select>
 
-          <label>Etapa</label>
-          <select name="etapa" required>
-            <option>Fundație</option>
-            <option>Zidărie</option>
-            <option>Acoperiș</option>
-            <option>Finisaje</option>
-          </select>
+  <label>Mesaj</label>
+  <textarea name="mesaj" rows="5" required></textarea>
 
-          <label>Mesaj</label>
-          <textarea name="mesaj" rows="5" required></textarea>
-          <input type="hidden" name="_redirect" value="https://ghilan860-wq.github.io/multumesc.html">
-          <button class="btn" type="submit">Trimite întrebarea</button>
-          <div class="small">Nu include promisiuni de timp dacă nu sunt verificabile.</div>
-        </form>
+  <input type="hidden" name="_subject" value="Cerere nouă - Pilot de șantier">
+  <input type="hidden" name="_redirect" value="multumesc.html">
+
+  <button class="btn" type="submit">Trimite întrebarea</button>
+</form>
+
       </div>
     </div>
   </div>
